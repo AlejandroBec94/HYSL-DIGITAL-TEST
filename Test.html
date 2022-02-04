@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <style>
+    .navbar-dark {
+      background-image: linear-gradient(#4279DB, #82AFFF) !important;
+    }
+
+    .btn-outline-success {
+      color: azure;
+      background-color: transparent;
+      background-image: none;
+      border-color: azure;
+    }
+
+    .btn-outline-success:hover {
+      color: grey;
+      background-color: transparent;
+      background-image: none;
+      border-color: linear-gradient(#3fd603, #33a008);
+    }
+
+    .live .example-choice:before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: -10px;
+      z-index: 1;
+      opacity: 0;
+      transition: all .2s ease-out;
+      transform: translateY(-50%);
+      border-left: 10px solid #1b76c4;
+      border-top: 10px solid transparent;
+      border-bottom: 10px solid transparent;
+    }
+    .example-choice.selected:before {
+    opacity: 1;
+    right: -1.5em;
+}
+  </style>
+
+</head>
+
+<body>
+
+  <div id="app">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-light">
+      <a class="navbar-brand" href="#"><img width="180px"
+          src="https://s3-alpha-sig.figma.com/img/8871/4311/fbb232db4d41dfb8542ed9f16c05708c?Expires=1644796800&Signature=CAMjhszatIcebIy2i68vUcKcqSyl-Vcitkv5M5xWyhLtclpQA2lsDRovaynj24snslSbcVY8xnivRpDs-pDXhekLJGqsz372ucSYoB9uOQUlTJk97OffhQT02DhHOOIYqrU1yE7qn7lokv8Bl-Puwa68HebU94gmBtuRgJSC17HEizgwLOBlJYOFRici8c3DPejnTxlI70Hg5CsWAnb3hMXi4N-7kqOkpRgK9Lzrm2z4Jp5g4NwjEzFR-dv97jzKPXzHWEyX-OlsyMllpRHLgMFF9XmMBjJ16SzP9Q7gP7zA3ffhIkMvQCg8k2TdoeMW-U2XOSlbhjdiNHrhwewgIA__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA"
+          alt=""></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item " :class="{ active: menu == 'Industries' }">
+            <a class="nav-link" href="#" v-on:click="menu = 'Industries'">Industries <span class="sr-only"></span></a>
+          </li>
+          <li class="nav-item " :class="{ active: menu == 'Solutions' }">
+            <a class="nav-link" href="#" v-on:click="menu = 'Solutions'">Solutions <span class="sr-only"></span></a>
+          </li>
+          <li class="nav-item " :class="{ active: menu == 'Enterprise Class AI' }">
+            <a class="nav-link" href="#" v-on:click="menu = 'Enterprise Class AI'">Enterprise Class AI <span
+                class="sr-only"></span></a>
+          </li>
+          <li class="nav-item " :class="{ active: menu == 'Knowledge Center' }">
+            <a class="nav-link" href="#" v-on:click="menu = 'Knowledge Center'">Knowledge Center <span
+                class="sr-only"></span></a>
+          </li>
+          <li class="nav-item " :class="{ active: menu == 'Company' }">
+            <a class="nav-link" href="#" v-on:click="menu = 'Company'">Company <span class="sr-only"></span></a>
+          </li>
+
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+          <span class="material-icons mr-5 cursor-pointer" style="cursor:pointer; color: azure;"
+            v-on:click="menu = 'search'">
+            search
+          </span>
+          <button class="btn btn-outline-success my-2 my-sm-0" style="color: azure;" type="submit">REQUEST A
+            DEMO</button>
+        </form>
+      </div>
+    </nav>
+
+    <div class="container mt-5" v-if="menu != 'search'">
+      <div class="jumbotron">
+        <h1 class="display-4">This is a {{ menu }} section</h1>
+        <p class="lead">This is a simple example of a reactive values</p>
+        <hr class="my-4">
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Suscipit ipsum est voluptas corporis distinctio a,
+          culpa quisquam aliquid similique temporibus nobis at quia quod, adipisci rerum? Corrupti voluptatum beatae
+          quos.</p>
+        <p class="lead">
+          <a class="btn btn-primary btn-lg" target="_blank" href="https://www.linkedin.com/in/alejandro-becerra-ortiz/"
+            role="button">See profile</a>
+        </p>
+      </div>
+    </div>
+    <div class="container mt-5" v-else>
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    </div>
+
+    
+
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <title>Document</title>
+
+  <script>
+    new Vue(
+      {
+        el: "#app",
+        data: {
+          menu: "Industries"
+        }
+      }
+    )
+  </script>
+</body>
+
+
+</html>
